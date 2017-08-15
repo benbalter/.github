@@ -1,4 +1,4 @@
-# Probot Config
+# Probot Shared Config
 
 Shared configuration file for [probot](https://github.com/probot/) plugins.
 
@@ -7,7 +7,7 @@ Shared configuration file for [probot](https://github.com/probot/) plugins.
 * Syncs shared `.github/*` files across multiple repositories
 * Installs applications
 * Configures repository settings
-* Saves maintainers time and clicks 
+* Saves maintainers time and clicks
 
 ## Setup
 
