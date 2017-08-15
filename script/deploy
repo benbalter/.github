@@ -25,6 +25,13 @@ deploy["repositories"].each do |repository|
   logger.info "Begining deployment for #{repository}"
   repo_info = client.repository repository
 
+  logger.info "=> Configuration Apps"
+  deploy["installations"].each do |label, installation|
+    logger.info "==> Installing #{label}"
+    options = { accept: "application/vnd.github.machine-man-preview+json" }
+    client.add_repository_to_app_installation installation, repo_info.id, options
+  end
+
   logger.info "=> Setting .github/ contents"
   remote_dotgithub_files = begin
     client.contents repository, path: ".github"
@@ -51,11 +58,4 @@ deploy["repositories"].each do |repository|
   options = { accept: "application/vnd.github.loki-preview+json" }
   options = options.merge settings["branch_protection"]
   client.protect_branch repository, "master", options
-
-  logger.info "=> Configuration Apps"
-  deploy["installations"].each do |label, installation|
-    logger.info "==> Installing #{label}"
-    options = { accept: "application/vnd.github.machine-man-preview+json" }
-    client.add_repository_to_app_installation installation, repo_info.id, options
-  end
 end
