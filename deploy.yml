@@ -1,0 +1,22 @@
+# List of owner/repo repository names to deploy to
+repositories:
+  - benbalter/licensee
+  - benbalter/gman
+  - benbalter/wordpress-to-jekyll-exporter
+  - benbalter/wp-document-revisions
+  - benbalter/jekyll-auth
+  - benbalter/jekyll-style-guide
+  - benbalter/jekyll-readme-index
+  - benbalter/jekyll-optional-front-matter
+  - benbalter/jekyll-default-layout
+  - benbalter/jekyll-titles-from-headings
+  - benbalter/jekyll-relative-links
+
+# List of GitHub App installations to enable in the form of label: installation ID
+# Note, the installation ID can be found in the app's URL
+installations:
+  request-info: 46266
+  stale: 19067
+  update-docs: 46265
+  welcome: 46267
+  settings: 46289
