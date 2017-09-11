@@ -17,6 +17,6 @@ repositories:
 installations:
   request-info: 46266
   stale: 19067
-  update-docs: 46265
+#  update-docs: 46265
   welcome: 46267
   settings: 46289
