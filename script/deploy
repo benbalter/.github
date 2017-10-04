@@ -47,10 +47,17 @@ deploy['repositories'].each do |repository|
     content = File.read(file).gsub('<REPO>', repository)
 
     if remote_dotgithub_files.any? { |f| f.path == path }
-      logger.warn "==> #{path} already exists. Ovewriting"
-      blob = client.contents repository, path: path
-      msg  = "Update #{path}"
-      client.update_contents repository, path, msg, blob.sha, content
+      response = client.contents repository, path: path
+      remote_content = Base64.decode64(response.content).force_encoding('utf-8')
+
+      if content == remote_content
+        logger.info "==> #{path} already exists and is up to date. Skipping."
+      else
+        logger.warn "==> #{path} already exists but it out of date. Ovewriting."
+        blob = client.contents repository, path: path
+        msg  = "Update #{path}"
+        client.update_contents repository, path, msg, blob.sha, content
+      end
     else
       logger.info "==> Creating #{path}"
       client.create_contents repository, path, "Create #{path}", content

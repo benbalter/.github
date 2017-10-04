@@ -11,6 +11,7 @@ repositories:
   - benbalter/jekyll-default-layout
   - benbalter/jekyll-titles-from-headings
   - benbalter/jekyll-relative-links
+  - benbalter/jekyll-avatar
 
 # List of GitHub App installations to enable in the form of label: installation ID
 # Note, the installation ID can be found in the app's URL
