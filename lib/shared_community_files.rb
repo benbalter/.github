@@ -109,8 +109,8 @@ class SharedCommunityFiles
   def setup_dir(dir, repo)
     logger.info "=> Setting #{dir} contents"
     local_dir_files(dir).each do |file|
-      content = render(file, repo)
       path = File.join dir, File.basename(file)
+      content = render(path, repo)
       repo.set_file_contents(path, content)
     end
   end
