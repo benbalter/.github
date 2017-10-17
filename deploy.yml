@@ -13,7 +13,7 @@ repositories:
   - benbalter/jekyll-relative-links
   - benbalter/jekyll-avatar
   - benbalter/word-to-markdown
-  
+
 # List of GitHub App installations to enable in the form of label: installation ID
 # Note, the installation ID can be found in the app's URL
 installations:
