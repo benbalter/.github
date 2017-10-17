@@ -1,4 +1,4 @@
-## Troubleshooting
+## Minimum PHP version
 
 Many shared hosts may use an outdated version of PHP by default. WordPress to Jekyll Export requires PHP 5.6 or greater.
 
