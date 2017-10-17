@@ -115,8 +115,14 @@ class SharedCommunityFiles
     end
   end
 
+  def template_contents(template_path)
+    abspath = File.expand_path "../#{template_path}", File.dirname(__FILE__)
+    File.read(abspath)
+  end
+  memoize :template_contents
+
   def render(template_path, repo)
-    Mustache.render File.read(template_path), {
+    Mustache.render template_contents(template_path), {
       nwo: repo.nwo,
       title: repo.title,
       custom_contributing_content: repo.custom_contributing_content,
