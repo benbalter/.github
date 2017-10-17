@@ -1,10 +1,11 @@
-# Probot Shared Config
+# Shared Community Files
 
-Shared configuration file for [probot](https://github.com/probot/) plugins.
+Script to share community files (e.g., `CONTRIBUTING.md`) and configuration file for [probot](https://github.com/probot/) plugins.
 
 ## What it does
 
 * Syncs shared `.github/*` files across multiple repositories
+* Syncs shared `docs/*` files across multiple repositories
 * Installs applications
 * Configures repository settings
 * Saves maintainers time and clicks
