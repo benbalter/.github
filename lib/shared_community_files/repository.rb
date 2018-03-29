@@ -8,6 +8,12 @@ class SharedCommunityFiles
     def_delegator :SharedCommunityFiles, :logger
     def_delegator :repo_info, :id
 
+    TITLE_SUBSTITUTIONS = {
+      "Wp"        => "WP",
+      "Wordpress" => "WordPress",
+      "Github"    => "GitHub"
+    }
+
     def initialize(nwo)
       @nwo = nwo
     end
@@ -18,7 +24,8 @@ class SharedCommunityFiles
     memoize :repo_info
 
     def title
-      nwo.split("/").last.titleize.sub("Wp", "WP").sub("Wordpress", "WordPress")
+      pattern = Regexp.union(TITLE_SUBSTITUTIONS.keys)
+      nwo.split("/").last.titleize.gsub(pattern, TITLE_SUBSTITUTIONS)
     end
 
     def files(path)
