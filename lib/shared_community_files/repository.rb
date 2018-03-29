@@ -9,10 +9,10 @@ class SharedCommunityFiles
     def_delegator :repo_info, :id
 
     TITLE_SUBSTITUTIONS = {
-      "Wp"        => "WP",
-      "Wordpress" => "WordPress",
-      "Github"    => "GitHub"
-    }
+      'Wp'        => 'WP',
+      'Wordpress' => 'WordPress',
+      'Github'    => 'GitHub'
+    }.freeze
 
     def initialize(nwo)
       @nwo = nwo
@@ -25,7 +25,7 @@ class SharedCommunityFiles
 
     def title
       pattern = Regexp.union(TITLE_SUBSTITUTIONS.keys)
-      nwo.split("/").last.titleize.gsub(pattern, TITLE_SUBSTITUTIONS)
+      nwo.split('/').last.titleize.gsub(pattern, TITLE_SUBSTITUTIONS)
     end
 
     def files(path)
@@ -74,15 +74,15 @@ class SharedCommunityFiles
 
     def custom_contributing_content
       path = File.expand_path "../../contributing/#{nwo}.md", File.dirname(__FILE__)
-      File.read(path) if File.exists?(path)
+      File.read(path) if File.exist?(path)
     end
 
     def has_support?
-      file_exists?("docs/SUPPORT.md")
+      file_exists?('docs/SUPPORT.md')
     end
 
     def has_troubleshooting?
-      file_exists?("docs/troubleshooting.md")
+      file_exists?('docs/troubleshooting.md')
     end
   end
 end

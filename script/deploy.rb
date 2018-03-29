@@ -3,6 +3,6 @@
 require 'dotenv'
 Dotenv.load
 
-require_relative "../lib/shared_community_files"
+require_relative '../lib/shared_community_files'
 
 SharedCommunityFiles.deploy

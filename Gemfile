@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'dotenv'
-gem 'octokit', github: 'octokit/octokit.rb'
 gem 'activesupport'
+gem 'dotenv'
 gem 'memoist'
 gem 'mustache'
+gem 'octokit', github: 'octokit/octokit.rb'
 
 group :development do
   gem 'pry'

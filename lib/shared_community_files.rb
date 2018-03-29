@@ -7,8 +7,7 @@ require 'active_support/inflector'
 require 'forwardable'
 require 'memoist'
 require 'mustache'
-require_relative "shared_community_files/repository"
-
+require_relative 'shared_community_files/repository'
 
 class SharedCommunityFiles
   class << self
@@ -99,9 +98,9 @@ class SharedCommunityFiles
 
   # Removes files from `.github/` that should live in `docs/`
   def remove_dotgithub_files(repo)
-    local_dir_files("docs/").each do |file|
+    local_dir_files('docs/').each do |file|
       basename = File.basename(file)
-      path = File.join ".github/", basename
+      path = File.join '.github/', basename
       repo.delete_file(path) if repo.file_exists?(path)
     end
   end
@@ -122,12 +121,10 @@ class SharedCommunityFiles
   memoize :template_contents
 
   def render(template_path, repo)
-    Mustache.render template_contents(template_path), {
-      nwo: repo.nwo,
-      title: repo.title,
-      custom_contributing_content: repo.custom_contributing_content,
-      has_support: repo.has_support?,
-      has_troubleshooting: repo.has_troubleshooting?
-    }
+    Mustache.render template_contents(template_path), nwo: repo.nwo,
+                                                      title: repo.title,
+                                                      custom_contributing_content: repo.custom_contributing_content,
+                                                      has_support: repo.has_support?,
+                                                      has_troubleshooting: repo.has_troubleshooting?
   end
 end
