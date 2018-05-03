@@ -7,6 +7,7 @@ require 'active_support/inflector'
 require 'forwardable'
 require 'memoist'
 require 'mustache'
+require 'pathname'
 require_relative 'shared_community_files/repository'
 
 class SharedCommunityFiles
@@ -52,17 +53,13 @@ class SharedCommunityFiles
 
   private
 
-  def relative_to_root(path)
-    File.expand_path("../#{path}", File.dirname(__FILE__))
-  end
-
   # Load YAML file at given path relative to repo root
   def load_yaml(path)
     YAML.load_file File.expand_path("../#{path}", File.dirname(__FILE__))
   end
 
   def local_dir_files(path)
-    Dir[relative_to_root("#{path}*")]
+    Pathname.new(path).children
   end
 
   def settings
@@ -107,10 +104,13 @@ class SharedCommunityFiles
 
   def setup_dir(dir, repo)
     logger.info "=> Setting #{dir} contents"
-    local_dir_files(dir).each do |file|
-      path = File.join dir, File.basename(file)
-      content = render(path, repo)
-      repo.set_file_contents(path, content)
+    local`_dir_files(dir).each do |path|
+      if path.directory?
+        setup_dir(path, repo)
+      elsif path.file?
+        content = render(path, repo)
+        repo.set_file_contents(path.to_s, content)
+      end
     end
   end
 

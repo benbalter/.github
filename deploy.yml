@@ -16,7 +16,7 @@ repositories:
   - benbalter/jekyll-remote-theme
   - benbalter/jekyll-include-cache
   - benbalter/github-records-archiver
-  
+
 # List of GitHub App installations to enable in the form of label: installation ID
 # Note, the installation ID can be found in the app's URL
 installations:
