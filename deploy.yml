@@ -1,6 +1,6 @@
 # List of owner/repo repository names to deploy to
 repositories:
-  - benbalter/licensee
+  - licensee/licensee
   - benbalter/gman
   - benbalter/wordpress-to-jekyll-exporter
   - benbalter/wp-document-revisions

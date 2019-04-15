@@ -74,6 +74,8 @@ class SharedCommunityFiles
 
   def configure_apps(repo)
     logger.info '=> Configuration Apps'
+    return logger.info "==> Skipping because reasons" unless repo.nwo.start_with? "benbalter"
+
     installations.each do |label, installation|
       logger.info "==> Installing #{label}"
       options = { accept: 'application/vnd.github.machine-man-preview+json' }
