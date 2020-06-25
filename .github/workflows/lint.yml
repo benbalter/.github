@@ -17,5 +17,3 @@ jobs:
 
       - name: Lint Code Base
         uses: docker://github/super-linter:v2.2.2
-        env:
-          VALIDATE_RUBY: false
