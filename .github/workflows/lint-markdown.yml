@@ -1,12 +1,20 @@
-on: push
+name: Lint Markdown
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  markdownlint:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
 
-      - uses: xt0rted/markdownlint-problem-matcher@v1
-
-      - run: markdownlint **/*.md
+      - uses: DavidAnson/markdownlint-cli2-action@v24
+        with:
+          globs: "**/*.md"

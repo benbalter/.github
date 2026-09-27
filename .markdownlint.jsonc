@@ -1,0 +1,4 @@
+{
+  // Prose files; wrapping long lines hurts diffs more than it helps.
+  "MD013": false
+}
