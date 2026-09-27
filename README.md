@@ -1,23 +1,17 @@
-# Shared Community Files
+# Default community health files
 
-Script to share community files (e.g., `CONTRIBUTING.md`) and configuration file for [probot](https://github.com/probot/) plugins.
+This is [@benbalter](https://github.com/benbalter)'s `.github` repository. GitHub uses the files here as [defaults for any of @benbalter's public repositories](https://docs.github.com/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) that don't have their own copy.
 
-## What it does
+| File | Purpose |
+| --- | --- |
+| [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) | Contributing guidelines |
+| [`docs/CODE_OF_CONDUCT.md`](docs/CODE_OF_CONDUCT.md) | Contributor Covenant 2.1 |
+| [`docs/SECURITY.md`](docs/SECURITY.md) | How to report vulnerabilities |
+| [`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE/) | Bug report and feature request templates |
+| [`.github/funding.yml`](.github/funding.yml) | Sponsor button |
 
-* Syncs shared `.github/*` files across multiple repositories
-* Syncs shared `docs/*` files across multiple repositories
-* Installs applications
-* Configures repository settings
-* Saves maintainers time and clicks
+A repository that has its own version of a file (in its root, `.github/`, or `docs/`) uses that instead of the default here.
 
-## Setup
+These files are plain Markdown, not templates, because GitHub shows them as-is in every repository that inherits them.
 
-1. Clone locally
-2. `script/bootstrap`
-3. (Optional) Create a `.env` file in the repo root with `OCTOKIT_ACCESS_TOKEN=XXXX` where XXX is a personal access token with `repo` scope
-
-## Usage
-
-1. Customize the `.github/*` files
-2. Customize `/deploy.yml` with your repositories and apps
-3. Run `script/deploy`
+This repository used to hold a Ruby script that synced templated copies of these files, app installations, and branch protection to a list of repositories. That script was retired in favor of GitHub's built-in inheritance. It's still in the git history if you need it.

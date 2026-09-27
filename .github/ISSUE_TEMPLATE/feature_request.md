@@ -4,7 +4,7 @@ about: Suggest an idea for this project
 
 ---
 
-### Is your feature request related to a problem? Please describe the problem you're trying to solve.
+### What problem are you trying to solve?
 
 A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
 

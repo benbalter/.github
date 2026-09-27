@@ -1,0 +1,5 @@
+{
+  "extends": "../../.markdownlint.jsonc",
+  // Issue templates start with front matter and use H3 sections by design.
+  "MD041": false
+}
