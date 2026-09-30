@@ -1,0 +1,5 @@
+{
+  "extends": "../.markdownlint.jsonc",
+  // The pull request template opens with a comment, not a heading, by design.
+  "MD041": false
+}
